@@ -4,7 +4,8 @@ export default class Account extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      balance: 0
+      balance: 0,
+      message: " "
     };
     this.handleDepositClick = this.handleDepositClick.bind(this);
     this.handleWithdrawalClick = this.handleWithdrawalClick.bind(this)
@@ -12,8 +13,13 @@ export default class Account extends Component {
 
   handleDepositClick(e) {
     e.preventDefault();
+    this.setState({
+      message: ""
+    })
     if (isNaN(this.refs.amount.value)) {
-      console.log("Not a number");
+      this.setState({
+        message: "Please enter a number."
+      })
     }
     else {
       let amount = +this.refs.amount.value;
@@ -27,16 +33,28 @@ export default class Account extends Component {
 
   handleWithdrawalClick(e) {
     e.preventDefault();
+    this.setState({
+      message: ""
+    })
     if (isNaN(this.refs.amount.value)) {
-      console.log("Not a number");
+      this.setState({
+        message: "Please enter a number."
+      })
     }
     else {
       let amount = +this.refs.amount.value;
-      let newBalance = this.state.balance - amount;
-      this.setState({
-        balance: newBalance
+      if(this.state.balance - amount < 0){
+        this.setState({
+          message: "Inadequate funds for this withdrawal."
+        });
+      } else {
+        let newBalance = this.state.balance - amount;
+        this.setState({
+          balance: newBalance
       })
       this.refs.amount.value = '';
+
+      }
     }
   }
 
@@ -55,6 +73,7 @@ export default class Account extends Component {
             <input type="button" value="Deposit" className="widget" onClick={this.handleDepositClick} /> 
             <input type="button" value="Withdrawal" className="widget" onClick={this.handleWithdrawalClick} />
           </div>
+          <p className="message">{this.state.message}</p>
       </div>
       
     )
