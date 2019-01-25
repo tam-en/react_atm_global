@@ -8,6 +8,10 @@ body {
   width: 700px;
 }
 
+.widget {
+  margin: 0 2px;
+}
+
 .header {
   margin: 50px 0px;
 }
@@ -42,3 +46,8 @@ body {
   background-color: #F52F4F;
   color: #FFFFFF;
 }
+
+#logo {
+  margin: 40px;
+}
+

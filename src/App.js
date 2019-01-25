@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './ga.png';
+import logo from './general-assembly-vector-logo.svg';
 
 import Account from './Account';
 
@@ -12,6 +12,7 @@ class App extends Component {
           <div id="title">Bank of GA</div>
         </div>
         <Account name="Checking" />
+        <Account name="Savings" />
         <div className="clear"></div>
       </div>
     );
