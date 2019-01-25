@@ -5,7 +5,7 @@ export default class Account extends Component {
     super(props);
     this.state = {
       balance: 0,
-      message: " "
+      message: ""
     };
     this.handleDepositClick = this.handleDepositClick.bind(this);
     this.handleWithdrawalClick = this.handleWithdrawalClick.bind(this)
@@ -19,6 +19,11 @@ export default class Account extends Component {
     if (isNaN(this.refs.amount.value)) {
       this.setState({
         message: "Please enter a number."
+      })
+    }
+    else if (this.refs.amount.value < 0){
+      this.setState({
+        message: "Do not enter a negative number."
       })
     }
     else {
@@ -39,6 +44,11 @@ export default class Account extends Component {
     if (isNaN(this.refs.amount.value)) {
       this.setState({
         message: "Please enter a number."
+      })
+    }
+    else if (this.refs.amount.value < 0){
+      this.setState({
+        message: "Do not enter a negative number."
       })
     }
     else {
@@ -63,7 +73,6 @@ export default class Account extends Component {
     if (this.state.balance === 0) {
       balanceClass += ' zero';
     }
-
     return (
         <div className="account">
           <h2>{this.props.name}</h2>
@@ -74,8 +83,7 @@ export default class Account extends Component {
             <input type="button" value="Withdrawal" className="widget" onClick={this.handleWithdrawalClick} />
           </div>
           <p className="message">{this.state.message}</p>
-      </div>
-      
+      </div>  
     )
   }
 }

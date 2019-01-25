@@ -1,9 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Ruluko);
 
-body {
-/*  font-family: 'Ruluko', sans-serif;
-*/  
+body { 
   font-family: 'Roboto', sans-serif;
   margin: 0px auto;
   text-align: center;
@@ -55,10 +53,6 @@ body {
   font-weight: 700;
 }
 
-.boxy {
-  vertical-align: top;
-}
-
 #logo {
   margin: 20px auto;
   text-align: center;
@@ -69,7 +63,7 @@ body {
 #title {
   font-family: Roboto, sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 20px;
   margin: 40px 0 0 0;
 
 }
